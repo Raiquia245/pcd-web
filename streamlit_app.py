@@ -295,42 +295,42 @@ def classify_fruit(image, fruit_type, model, result_column):
                 plt.tight_layout()
                 st.pyplot(fig)
                 
-                # CONFIDENCE CALCULATION YANG AKURAT
-                st.markdown("### 📊 Accurate Model Confidence")
+                # # CONFIDENCE CALCULATION YANG AKURAT
+                # st.markdown("### 📊 Accurate Model Confidence")
                 
-                confidence_scores, raw_scores = calculate_accurate_confidence(features, model)
+                # confidence_scores, raw_scores = calculate_accurate_confidence(features, model)
                 
-                categories = list(confidence_scores.keys())
-                confidences = list(confidence_scores.values())
+                # categories = list(confidence_scores.keys())
+                # confidences = list(confidence_scores.values())
                 
-                # Display confidence bars
-                fig, ax = plt.subplots(figsize=(10, 4))
-                colors = ['green' if 'fresh' in cat.lower() else 'red' for cat in categories]
-                bars = ax.bar(categories, confidences, color=colors, alpha=0.7)
+                # # Display confidence bars
+                # fig, ax = plt.subplots(figsize=(10, 4))
+                # colors = ['green' if 'fresh' in cat.lower() else 'red' for cat in categories]
+                # bars = ax.bar(categories, confidences, color=colors, alpha=0.7)
                 
-                # Highlight predicted class
-                predicted_idx = None
-                for i, cat in enumerate(categories):
-                    if cat.lower() == predicted_class.lower():
-                        bars[i].set_edgecolor('black')
-                        bars[i].set_linewidth(3)
-                        predicted_idx = i
-                        break
+                # # Highlight predicted class
+                # predicted_idx = None
+                # for i, cat in enumerate(categories):
+                #     if cat.lower() == predicted_class.lower():
+                #         bars[i].set_edgecolor('black')
+                #         bars[i].set_linewidth(3)
+                #         predicted_idx = i
+                #         break
                 
-                ax.set_ylabel('Confidence (%)')
-                ax.set_title('Classification Confidence (Using Actual Model Algorithm)')
-                ax.set_ylim(0, 100)
+                # ax.set_ylabel('Confidence (%)')
+                # ax.set_title('Classification Confidence (Using Actual Model Algorithm)')
+                # ax.set_ylim(0, 100)
                 
-                # Add value labels on bars
-                for i, (bar, conf) in enumerate(zip(bars, confidences)):
-                    label = f'{conf:.1f}%' + (' ✓' if i == predicted_idx else '')
-                    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() / 2,
-                        label, ha='center', va='center', color='white' if conf > 30 else 'black',
-                        weight='bold' if i == predicted_idx else 'normal', fontsize=10)
+                # # Add value labels on bars
+                # for i, (bar, conf) in enumerate(zip(bars, confidences)):
+                #     label = f'{conf:.1f}%' + (' ✓' if i == predicted_idx else '')
+                #     ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() / 2,
+                #         label, ha='center', va='center', color='white' if conf > 30 else 'black',
+                #         weight='bold' if i == predicted_idx else 'normal', fontsize=10)
                 
-                plt.xticks(rotation=45)
-                plt.tight_layout()
-                st.pyplot(fig)
+                # plt.xticks(rotation=45)
+                # plt.tight_layout()
+                # st.pyplot(fig)
 
                 
 
